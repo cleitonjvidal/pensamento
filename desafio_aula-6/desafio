@@ -1,0 +1,31 @@
+import random
+recordista = 0
+recorde = float('inf')  # Define o recorde como infinito para começar
+
+while True:
+    nome = input("Por favor, informe seu nome: ")
+    numero_secreto = random.randint(0, 50)
+    tentativas = 0
+    acertou = False
+
+    while not acertou:
+        tentativas += 1
+        palpite = int(input("Adivinhe o número entre 0 e 50: "))
+        if palpite > numero_secreto:
+            print("Seu palpite foi muito alto!")
+        elif palpite < numero_secreto:
+            print("Seu palpite foi muito baixo!")
+        else:
+            print(f"Parabéns, {nome}! Você acertou o número em {tentativas} tentativas.")
+            acertou = True
+            if tentativas < recorde:
+                print(f"Novo recorde! {nome} agora é o recordista com {tentativas} tentativas.")
+                recordista = nome
+                recorde = tentativas
+            else:
+                print(f"O recordista atual é {recordista} com {recorde} tentativas.")
+
+    jogar_novamente = input("Você quer jogar novamente? (sim/não): ")
+    if jogar_novamente == "sim":
+        print("Obrigado por jogar! Até a próxima.")
+        break
