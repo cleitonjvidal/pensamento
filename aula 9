@@ -1,0 +1,230 @@
+# 1. Crie uma função que receba uma lista de elementos e um valor
+# específico, e retorne o número de vezes que esse valor aparece na lista.
+
+
+
+def contar_ocorrencias(lista, valor):
+    
+    contador = 0
+    for elemento in lista:
+        if elemento == valor:
+            contador += 1
+    return contador
+
+# Exemplo de uso:
+minha_lista = [1, 2, 3, 4, 1, 2, 1, 1]
+valor_a_contar = 1
+ocorrencias = contar_ocorrencias(minha_lista, valor_a_contar)
+print(f"O valor {valor_a_contar} aparece {ocorrencias} vezes na lista.")
+
+
+
+
+
+
+# 2. Crie um programa que receba uma lista de números e crie uma nova
+# lista removendo os elementos duplicados, mantendo a ordem original.
+
+
+def remover_duplicados(lista):
+    
+    lista_sem_duplicados = []
+    elementos_vistos = set()
+    for numero in lista:
+        if numero not in elementos_vistos:
+            lista_sem_duplicados.append(numero)
+            elementos_vistos.add(numero)
+    return lista_sem_duplicados
+
+minha_lista = [1, 2, 2, 3, 4, 1, 5, 6, 5]
+nova_lista = remover_duplicados(minha_lista)
+print(f"Lista original: {minha_lista}")
+print(f"Lista sem duplicados: {nova_lista}")
+
+
+
+
+# Crie um programa que receba uma lista de números e um novo
+# número, e insira esse número na posição correta para manter a lista em
+# ordem crescente.
+
+
+
+
+
+
+def inserir_ordenado(lista, numero):
+    
+    nova_lista = lista.copy()  
+    for i in range(len(nova_lista)):
+        if numero < nova_lista[i]:
+            nova_lista.insert(i, numero)
+            break
+    else:
+        nova_lista.append(numero)
+    return nova_lista
+
+# Exemplo de uso:
+minha_lista = [1, 3, 4, 7, 8]
+novo_numero = 5
+nova_lista = inserir_ordenado(minha_lista, novo_numero)
+print(f"Lista original: {minha_lista}")
+print(f"Lista com novo número: {nova_lista}")
+
+
+
+
+
+
+
+
+# Você foi contratado para desenvolver um programa que simule um sistema de troco em um
+# caixa eletrônico. O objetivo deste trabalho é criar um programa que receba um valor monetário e
+# determine a quantidade mínima de notas necessárias para fornecer o troco, considerando as
+# denominações de notas disponíveis.
+
+# Requisitos:
+# 1. O programa deve receber um valor em reais (R$) a ser fornecido como troco.
+# 2. O programa deve considerar as seguintes denominações de notas: R$ 100, R$ 50, R$ 20, R$ 10,
+# R$ 5, R$ 2 e R$ 1
+# 3. O programa deve calcular e exibir a quantidade mínima de notas de cada denominação
+# necessárias para fornecer o troco.
+# 4. O programa deve utilizar loops for ou while para iterar sobre as denominações e calcular o
+# troco. Utilize listas para armazenar as notas que devem ser entregues ao usuário e apresente de
+# forma amigável.
+
+
+
+def calcular_troco(valor):
+    
+    notas = [100, 50, 20, 10, 5, 2, 1]
+    troco = {}
+    
+    for nota in notas:
+        quantidade_notas = valor // nota
+        if quantidade_notas > 0:
+            troco[nota] = quantidade_notas
+            valor -= quantidade_notas * nota
+
+    return troco
+
+def exibir_troco(troco):
+    
+    print("Quantidade de notas para o troco:")
+    for nota, quantidade in troco.items():
+        print(f"R$ {nota}: {quantidade} nota(s)")
+
+valor_troco = int(input("Digite o valor do troco em reais (R$): "))
+troco_calculado = calcular_troco(valor_troco)
+exibir_troco(troco_calculado)
+
+
+
+
+
+
+# 5. Você foi contratado para desenvolver um programa que gerencie o estoque de uma loja.
+# O programa deve permitir que o usuário adicione produtos ao estoque, remova produtos e
+# visualize a lista de produtos disponíveis.
+
+# Requisitos:
+# 1. O programa deve permitir adicionar novos produtos ao estoque.
+# 2. O programa deve permitir remover produtos do estoque pelo nome.
+# 3. O programa deve exibir a lista de produtos disponíveis no estoque.
+# 4. O programa deve utilizar listas para armazenar os produtos.
+# 5. O programa deve utilizar loops for ou while para iterar sobre os produtos e realizar as
+# operações necessárias.
+
+
+
+def exibir_menu():
+    print("\nMenu:")
+    print("1. Adicionar produto ao estoque")
+    print("2. Remover produto do estoque")
+    print("3. Exibir produtos disponíveis")
+    print("4. Sair")
+
+def adicionar_produto(estoque):
+    produto = input("Digite o nome do produto a ser adicionado: ")
+    estoque.append(produto)
+    print(f"Produto '{produto}' adicionado ao estoque.")
+
+def remover_produto(estoque):
+    produto = input("Digite o nome do produto a ser removido: ")
+    encontrado = False
+    
+    
+    for i in range(len(estoque)):
+        if estoque[i] == produto:
+            encontrado = True
+            break
+
+    if encontrado:
+        for i in range(len(estoque)):
+            if estoque[i] == produto:
+                del estoque[i]
+                print(f"Produto '{produto}' removido do estoque.")
+                break
+    else:
+        print(f"Produto '{produto}' não encontrado no estoque.")
+
+def exibir_produtos(estoque):
+    if len(estoque) == 0:
+        print("Estoque vazio.")
+    else:
+        print("\nProdutos disponíveis no estoque:")
+        for produto in estoque:
+            print(f"- {produto}")
+
+def main():
+    estoque = []
+    while True:
+        exibir_menu()
+        escolha = input("Escolha uma opção: ")
+        
+        if escolha == "1":
+            adicionar_produto(estoque)
+        elif escolha == "2":
+            remover_produto(estoque)
+        elif escolha == "3":
+            exibir_produtos(estoque)
+        elif escolha == "4":
+            print("Saindo do programa...")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
