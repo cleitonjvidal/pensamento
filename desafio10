@@ -1,0 +1,66 @@
+
+def adicionar_produto(estoque):
+    nome_produto = input("Digite o nome do produto: ")
+    preco = float(input("Digite o preço do produto: "))
+    quantidade = int(input("Digite a quantidade do produto: "))
+    produto = [nome_produto, preco, quantidade]
+    estoque.append(produto)
+    print(f"Produto '{nome_produto}' adicionado ao estoque.\n")
+
+
+def remover_produto(estoque, nome_produto):
+    for produto in estoque:
+        if produto[0] == nome_produto:
+            estoque.remove(produto)
+            print(f"Produto {nome_produto} removido do estoque.")
+        else:
+            print(f"Produto {nome_produto} não encontrado no estoque.")
+    
+            return
+    
+def atualizar_quantidade(estoque, nome_produto):
+    for produto in estoque:
+        if produto[0] == nome_produto:
+            nova_quantidade = int(input("Digite a nova quantidade para o produto : "))
+            produto[2] = nova_quantidade
+            print(f"Quantidade do produto {nome_produto} atualizada para {nova_quantidade}.")
+            return
+    print(f"Produto {nome_produto} não encontrado no estoque.")
+
+def visualizar_estoque(estoque):
+    if len(estoque) == 0:
+        print("O estoque está vazio.")
+    else:
+        print(f"{'Nome'} {'Preço'}  {'Quantidade'}")
+        
+        for produto in estoque:
+            nome, preco, quantidade = produto
+            print(f"{nome}  {preco}  {quantidade}")
+        
+
+def menu():
+    print("1 - adcionar produto")
+    print("2 - remover produto")
+    print("3 - atualizar produto")
+    print("4 - visualizar produto")
+    opcao = int(input("digite a opção:"))
+    return opcao
+
+
+def main():
+    estoque = []
+    while True:
+        opcao = menu()
+        
+        if opcao == "1":
+            adicionar_produto(estoque)
+        elif opcao == "2":
+            nome = input("Digite o nome do produto a ser removido: ")
+            remover_produto(estoque, nome)
+        elif opcao == "3":
+            nome = input("Digite o nome do produto a ser atualizado: ")
+            atualizar_quantidade(estoque, nome)
+        elif opcao == "4":
+            visualizar_estoque(estoque)
+        
+main()
