@@ -1,0 +1,170 @@
+# Escreva uma função que receba dois números como parâmetros e retorne a soma deles.
+
+#def soma(usuario):
+
+
+#     return usuario  + usuario
+
+# def main():
+#     for i in range(2):  
+#         usuario = float(input("digite seu numero: "))
+
+#     somar = soma(usuario)
+
+# main()
+
+def soma(n1, n2):
+    return n1 + n2
+
+resultado = soma(5, 7)
+print(resultado)
+
+# Faça uma função que receba um número como parâmetro e retorne o seu dobro.
+
+
+
+
+
+
+
+def calcularDobro(usuario):
+    return usuario * 2
+
+    
+usuario = float(input("digite seu numero: "))
+
+dobro = calcularDobro(usuario)
+print(f"o dobro do numero digitado é {dobro}:")
+
+
+# Escreva uma função que receba uma temperatura em graus Celsius como parâmetro e retorne a temperatura equivalente em graus Fahrenheit.
+
+def celsius_fahrenheit():
+    usuario = int(input("digite uma temperatura para converter"))
+    fahrenheit = (usuario * 9/5) + 32
+    return fahrenheit
+
+temperatura_fahrenheit = celsius_fahrenheit ()
+print(f"a conversão é {temperatura_fahrenheit}")
+
+
+# Faça uma função que receba um número como parâmetro e retorne a soma de todos os números naturais menores ou iguais a ele.
+def numero():
+
+    n = int(input("digite um numero"))
+    resultado = 0 
+    for i in range(n, 0, -1):
+        resultado += i
+
+    print(f"seu resultado é {resultado}")
+def main():
+
+    numero()
+
+main()
+
+
+
+
+# Uma Empresa deseja efetuar uma pesquisa de ibope sobre a aceitação de um certo produto lançado por ela no mercado. 
+# Para isto encomendou uma pesquisa a ser realizada sobre o produto aplicada a 20 pessoas, onde cada pessoa responderá sim ou não. 
+# Ao final da pesquisa deverá ser mostrado o resultado dos seguintes cálculos:
+# Total de pessoas que responderam sim;
+# Total de pessoas que responderam não; 
+
+
+
+def pesquisa():
+    Rsim = 0
+    Rnao = 0
+
+
+    for i in range(5):
+        usuario = input("digite sim/ não: ")
+        
+        if usuario == "sim":
+            Rsim +=1
+
+        elif usuario == "nao":
+            Rnao +=1 
+    print(f"sim {Rsim}")
+    print(f"não {Rnao}")
+def main():
+    pesquisa()
+
+main()
+
+# Uma empresa de pesquisa deseja saber qual jornal é mais lido em Santa Maria (A, B ou C). 
+# Faça um algoritmo que leia a opinião de 20 pessoas, ao final mostre a porcentagem de cada uma das revistas, em ordem crescente.
+
+
+
+
+
+def pesquisa():
+    A = 0
+    B = 0 
+    C = 0
+
+    for i in range(20):
+        resposta = input("digite a sua resposta A/B/C").upper
+        if resposta == 'A':
+            A += 1
+        elif resposta == 'B':
+            B += 1
+        elif resposta == 'C':
+            C += 1
+        porcA = (A * 100)/20
+        porcB = (B * 100)/20
+        porcC = (C * 100)/20
+
+        if  porcA >= porcB and porcA >= porcC:
+            if porcB >= porcC:
+                print("C:", porcC, "B:", porcB, "A:", porcA)
+            else:
+                print("B", porcB, "C", porcC, "A", porcA )
+        elif porcB >= porcA and porcB >= porcC:
+            if porcA > porcC:
+                print("B", porcB ,"C", porcC ,"A", porcA)
+            else:
+                print("C", porcC, "A", porcA, "B", porcB)
+        elif porcC >= porcA and porcC >= porcB:
+            if porcC > porcB:
+                print("B", porcB, "A", porcA, "C", porcC)
+def main():
+    pesquisa()
+    main()
+
+
+
+
+
+
+# # Implemente um método que encontre o maior número em um array. O método deve receber o array e retornar o maior e o menor item.
+
+
+        
+        
+def verificar():
+    array = []
+    for i in range(5):
+        usuario = int(input(f"digite os 5 numeros: {i + 1}°"))
+        array.append(usuario)
+    menor = array[0]
+    maior = array[0]
+    
+
+    for i in range(len(array)):
+        if maior < array[i]:
+            maior = array[i]
+        if menor > array[i]:
+            menor = array[i]
+    print(f"maior {maior}")
+    print(f"menor{menor}")
+def main():
+    verificar()
+main()
+
+
+
+
